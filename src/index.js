@@ -8,10 +8,11 @@ import {
 
 import Timer from './Timer';
 import MapView from './mapView';
+import TodoList from './TodoList';
 
 const App = () => {
   return (
-    <Router>
+    <Router hideNavBar={true}>
       <Scene key="root">
         <Scene key="timer"
           component={Timer}
@@ -21,6 +22,10 @@ const App = () => {
         <Scene key="mapview"
           component={MapView}
           title="MapView"
+        />
+         <Scene key="TodoList"
+          component={TodoList}
+          title="TodoList"
         />
       </Scene>
     </Router>

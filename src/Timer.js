@@ -99,7 +99,13 @@ export default class resume extends Component {
           style={styles.buttonTxtWhite}
           onPress={() => Actions.mapview()} // New Code
         >
-          Timer View
+          Map View
+        </Text>
+         <Text
+          style={styles.buttonTxtWhite}
+          onPress={() => Actions.TodoList()} // New Code
+        >
+          Todo List
         </Text>
       </View>
     );
