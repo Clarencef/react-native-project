@@ -7,10 +7,11 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import DayItem from './day-item';
 
-export default class resume extends Component {
+export default class Timer extends Component {
   constructor () {
     super();
     this.state = {
@@ -45,12 +46,10 @@ export default class resume extends Component {
       startTime: new Date(),
       laps: this.state.laps.concat([lap])
     });
-    console.log('lap')
   }
   renderButton (btnText) {
     const isStartBtn = btnText === 'Start';
     const isRunningAndStartBtn = isStartBtn && this.state.running;
-    console.log(this.state.running);
     return (
       <TouchableHighlight 
         style={[styles.button,isRunningAndStartBtn ? styles.buttonBorder : null]} 
@@ -81,6 +80,7 @@ export default class resume extends Component {
   //   }
   // }
   render () {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -173,3 +173,10 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 })
+
+var mapStateToProps = function(state){
+    // This component will have access to `appstate.heroes` through `this.props.heroes`
+    return {count:state.count};
+};
+
+module.exports = connect(mapStateToProps)(Timer);

@@ -7,10 +7,12 @@ import {
 } from 'react-native';
 
 export default class List extends Component {
+
   renderList = (item,i) => {
     return (
       <TouchableOpacity
         style={styles.listItem}
+        onPress={() => this.props.onPressItem(i)}
         >
         <Text>{item}</Text>
       </TouchableOpacity>

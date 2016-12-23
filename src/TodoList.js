@@ -22,6 +22,13 @@ export default class TodoList extends Component {
     });
     console.log(text);
   }
+
+  removeTodoList = (index) => {
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.filter((item,i) => i !== index)
+    })
+  }
   
   render () {
     const { todos } = this.state;
@@ -37,7 +44,8 @@ export default class TodoList extends Component {
           />
         <List
           list={todos}
-          style={styles.lists}>
+          style={styles.lists}
+          onPressItem={this.removeTodoList}>
         </List>
       </View>
     )
